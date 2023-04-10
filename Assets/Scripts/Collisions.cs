@@ -13,6 +13,8 @@ public class Collisions : MonoBehaviour {
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private int maxStorage; // Maximum amount of cans that can be picked up by the cart
     [SerializeField] private AudioSource sellAudio;
+    [SerializeField] private AudioSource canPickupSound;
+    [SerializeField] private AudioSource canPopSound;
 
     private int cansPickedUp = 0;
     private PlayerMotor playerMotor;
@@ -53,6 +55,7 @@ public class Collisions : MonoBehaviour {
         cansPickedUp++;
 
         playerMotor.UpdateDrag(cansPickedUp);
+        canPickupSound.Play();
     }
 
     private void Slip() {
@@ -69,6 +72,7 @@ public class Collisions : MonoBehaviour {
         cansPickedUp--;
 
         playerMotor.UpdateDrag(cansPickedUp);
+        canPopSound.Play();
     }
 
     private void Sell() {

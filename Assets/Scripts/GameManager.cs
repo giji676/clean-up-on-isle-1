@@ -80,4 +80,6 @@ public class GameManager : MonoBehaviour {
 /* 
 Checkout sound - https://pixabay.com/sound-effects/search/checkout/
 Cart rolling sound - https://pixabay.com/sound-effects/search/cart%20rolling/?manual_search=1&order=None
+Can pick up sound - https://pixabay.com/sound-effects/search/metal%20cling/?manual_search=1&order=None
+Can pop sound - https://pixabay.com/sound-effects/search/pop/?manual_search=1&order=None
 */

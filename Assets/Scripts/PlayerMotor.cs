@@ -21,7 +21,6 @@ public class PlayerMotor : MonoBehaviour {
 
         if (rb.velocity.magnitude >= 0.1f) {
             cartRollSound.enabled = true;
-            // cartRollSound.Play();
         }
         else {
             cartRollSound.enabled = false;
