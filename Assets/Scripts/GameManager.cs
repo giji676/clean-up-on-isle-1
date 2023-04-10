@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Update() {
+        if (cansSold >= cansSoldGoal) GameWon();
+        if (gameFinished) return;
         UpdateTimer();
     }
     

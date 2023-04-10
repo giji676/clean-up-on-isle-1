@@ -12,7 +12,7 @@ public class Collisions : MonoBehaviour {
     [SerializeField] private GameObject rbCan; // Rigidbody Can that will be spawned and be throw out of the cart
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private int maxStorage; // Maximum amount of cans that can be picked up by the cart
-    public int cansPickedUp = 0;
+    private int cansPickedUp = 0;
     private PlayerMotor playerMotor;
     private PlayerUI playerUI;
     private int cansSold = 0;
