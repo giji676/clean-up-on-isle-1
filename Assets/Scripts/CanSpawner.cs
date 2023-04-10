@@ -14,6 +14,7 @@ public class CanSpawner : MonoBehaviour {
     }
 
     private void Update() {
+        // Each frame spawn one can, I am doing this over multiple frames instead on in the Start function becuase in Start it can cause error because of the amound of collision checks
         if (numSpawned < cansNumToSpawn) {
             Spawn();
             numSpawned++;
@@ -21,9 +22,12 @@ public class CanSpawner : MonoBehaviour {
     }
 
     private void Spawn() {
+        // Get one can object from the ObjectPool
         GameObject obj = ObjectPooler.instance.GetPooledObject();
 
+        // Generate random point on the scene
         Vector3 randomPoint = new Vector3(Random.Range(-15f, 15f), 0.1f, Random.Range(-15f, 15f));
+        // Check if the can is overlapping with Shelves
         bool overlaps = Physics.CheckBox(randomPoint, checkBoxSize, Quaternion.identity, shelfLayer);
         
         if (overlaps) {
@@ -31,6 +35,7 @@ public class CanSpawner : MonoBehaviour {
             return;
         }
 
+        // If it's not overlapping sets its position, parent and set it active
         obj.transform.position = randomPoint;
         obj.transform.parent = canParent;
         obj.SetActive(true);

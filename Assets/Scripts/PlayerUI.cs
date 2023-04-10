@@ -12,6 +12,7 @@ public class PlayerUI : MonoBehaviour {
     private void Update() {
         if (damageOverlay.color.a == 0) return;
 
+        // Applys fade onto the damageOverlay image
         durationTimer += Time.deltaTime;
         if (durationTimer > duration) {
             float tempAplha = damageOverlay.color.a;

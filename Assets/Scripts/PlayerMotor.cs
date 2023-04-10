@@ -38,15 +38,12 @@ public class PlayerMotor : MonoBehaviour {
     }
 
     public void SpeedControl() {
+        // Limits the maximum speed to the moveSpeed
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         if (flatVel.magnitude > moveSpeed) {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
-    }
-
-    public void Slip() {
-        // rb.AddForce(orientation.right * 40f, ForceMode.Impulse);
     }
 }

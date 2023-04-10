@@ -30,42 +30,50 @@ public class Collisions : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider collider) {
+        // If player is colliding with canLayer
         if (((1 << collider.gameObject.layer) & canLayer.value) != 0) {
             if (cansPickedUp >= maxStorage) return;
 
             collider.isTrigger = false;
             AddCan(collider.transform);
         }
+        // If player is colliding with spillLayer
         else if (((1 << collider.gameObject.layer) & spillLayer.value) != 0) {
-            playerMotor.Slip();
             StartCoroutine(cameraShake.Shake(.2f, .09f));
             Slip();
         }
+        // If player is colliding with sellPointLayer
         else if (((1 << collider.gameObject.layer) & sellPointLayer.value) != 0) {
             Sell();
         }
     }
 
     private void AddCan(Transform canTransform) {
+        // Add the can to the cart
         canTransform.position = canPos[cansPickedUp].position;
         canTransform.rotation = canPos[cansPickedUp].rotation;
         canTransform.parent = canPos[cansPickedUp];
         cans[cansPickedUp] = canTransform;
 
         cansPickedUp++;
-
+        
+        // Add more drag to slow down the cart
         playerMotor.UpdateDrag(cansPickedUp);
         canPickupSound.Play();
     }
 
     private void Slip() {
+        // If there is nothing in the cart return
         if (cansPickedUp == 0) return;
         playerUI.DamageOverlay();
         
+        // Spawn a rigidbody can so physics can be applied
         GameObject newCan = Instantiate(rbCan, canSpawn.position, transform.rotation);
         Rigidbody rbNewCan = newCan.GetComponent<Rigidbody>();
+        // Apply upward force and random direction force
         rbNewCan.AddForce(Vector3.up * 4 + new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)) * 2 , ForceMode.Impulse);
         
+        // Destroy the can in the cart and remove it from the list
         Destroy(cans[cansPickedUp-1].gameObject);
         cans[cansPickedUp-1] = null;
         
@@ -76,8 +84,10 @@ public class Collisions : MonoBehaviour {
     }
 
     private void Sell() {
+        // If there is nothing in the cart return
         if (cansPickedUp == 0) return;
 
+        // Destroy each can in the cart and remove it from the list
         for (int i = 0; i < cans.Length; i++) {
             if (cans[i] == null) continue;
 

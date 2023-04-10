@@ -22,6 +22,7 @@ public class ObjectPooler : MonoBehaviour {
 
         pooledObjects = new List<GameObject>();
 
+        // Instantiate a can object {poolSize} times, set its parent to this.transform, and deactivate it
         for (int i = 0; i < poolSize; i++) {
             GameObject obj = Instantiate(objectToPool);
             obj.transform.parent = transform;
@@ -31,6 +32,7 @@ public class ObjectPooler : MonoBehaviour {
     }
 
     public GameObject GetPooledObject() {
+        // Return an available gameObject from the objectPool
         for (int i = 0; i < pooledObjects.Count; i++) {
             if (!pooledObjects[i].activeInHierarchy) {
                 return pooledObjects[i];
