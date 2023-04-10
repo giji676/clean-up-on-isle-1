@@ -5,6 +5,7 @@ public class PlayerMotor : MonoBehaviour {
     [SerializeField] private float groundDrag;
     [SerializeField] private float canDrag; // More cans you pick up, more drag you get, slower you get
     [SerializeField] private Transform orientation;
+    [SerializeField] private AudioSource cartRollSound;
 
     private Vector3 moveDirection;
     private Rigidbody rb;
@@ -17,6 +18,14 @@ public class PlayerMotor : MonoBehaviour {
 
     private void Update() {
         SpeedControl();
+
+        if (rb.velocity.magnitude >= 0.1f) {
+            cartRollSound.enabled = true;
+            // cartRollSound.Play();
+        }
+        else {
+            cartRollSound.enabled = false;
+        }
     }
 
     public void UpdateDrag(int cans) {

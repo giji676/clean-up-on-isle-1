@@ -76,3 +76,8 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("MainMenu");
     }
 }
+
+/* 
+Checkout sound - https://pixabay.com/sound-effects/search/checkout/
+Cart rolling sound - https://pixabay.com/sound-effects/search/cart%20rolling/?manual_search=1&order=None
+*/
