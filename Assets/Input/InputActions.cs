@@ -46,18 +46,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""FIre"",
+                    ""name"": ""Escape"",
                     ""type"": ""Button"",
-                    ""id"": ""800a4440-aec3-425a-81ff-c4893104cf81"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""a60390b0-2f3f-413f-8562-681ffd660cd1"",
+                    ""id"": ""f1e07daf-866c-4f27-935f-2d4cd090b576"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -177,23 +168,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f3ee7c0a-2b2b-4b4e-886c-af3f7c7bb0fc"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""7d72fc2f-ecc3-4461-8805-f3ada099b377"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""FIre"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d8cce646-e172-453e-9366-c76287e83869"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
+                    ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -206,8 +186,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Look = m_Movement.FindAction("Look", throwIfNotFound: true);
-        m_Movement_FIre = m_Movement.FindAction("FIre", throwIfNotFound: true);
-        m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
+        m_Movement_Escape = m_Movement.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -269,16 +248,14 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private IMovementActions m_MovementActionsCallbackInterface;
     private readonly InputAction m_Movement_Move;
     private readonly InputAction m_Movement_Look;
-    private readonly InputAction m_Movement_FIre;
-    private readonly InputAction m_Movement_Jump;
+    private readonly InputAction m_Movement_Escape;
     public struct MovementActions
     {
         private @InputActions m_Wrapper;
         public MovementActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Movement_Move;
         public InputAction @Look => m_Wrapper.m_Movement_Look;
-        public InputAction @FIre => m_Wrapper.m_Movement_FIre;
-        public InputAction @Jump => m_Wrapper.m_Movement_Jump;
+        public InputAction @Escape => m_Wrapper.m_Movement_Escape;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -294,12 +271,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnLook;
-                @FIre.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnFIre;
-                @FIre.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnFIre;
-                @FIre.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnFIre;
-                @Jump.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnJump;
+                @Escape.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnEscape;
             }
             m_Wrapper.m_MovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -310,12 +284,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @FIre.started += instance.OnFIre;
-                @FIre.performed += instance.OnFIre;
-                @FIre.canceled += instance.OnFIre;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
             }
         }
     }
@@ -324,7 +295,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnFIre(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

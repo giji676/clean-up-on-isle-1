@@ -14,7 +14,7 @@ public class ObjectPooler : MonoBehaviour {
     #endregion
 
     [SerializeField] private GameObject objectToPool;
-    private int poolSize;
+    private int poolSize = 10;
     private List<GameObject> pooledObjects;
 
     private void Start() {

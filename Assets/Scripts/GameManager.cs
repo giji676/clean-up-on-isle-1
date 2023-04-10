@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private Image timeImage;
     
-    private int cansSoldGoal;
-    private float maxTime;
+    private int cansSoldGoal = 10;
+    private float maxTime = 10;
     
     private PlayerUI playerUI;
     private int cansSold;

@@ -24,18 +24,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "FIre",
+                    "name": "Escape",
                     "type": "Button",
-                    "id": "800a4440-aec3-425a-81ff-c4893104cf81",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "a60390b0-2f3f-413f-8562-681ffd660cd1",
+                    "id": "f1e07daf-866c-4f27-935f-2d4cd090b576",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -155,23 +146,12 @@
                 },
                 {
                     "name": "",
-                    "id": "f3ee7c0a-2b2b-4b4e-886c-af3f7c7bb0fc",
-                    "path": "<Mouse>/leftButton",
+                    "id": "7d72fc2f-ecc3-4461-8805-f3ada099b377",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "FIre",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d8cce646-e172-453e-9366-c76287e83869",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
