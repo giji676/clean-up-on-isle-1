@@ -17,20 +17,25 @@ public class GameManager : MonoBehaviour {
 
     #endregion
     
-    [SerializeField] private float maxTime;
     [SerializeField] private GameObject playerObject;
     [SerializeField] private string gameWon;
     [SerializeField] private string gameOver;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TextMeshProUGUI timeText;
-    [SerializeField] private int cansSoldGoal;
     [SerializeField] private Image timeImage;
+    
+    private int cansSoldGoal;
+    private float maxTime;
+    
     private PlayerUI playerUI;
     private int cansSold;
     private float time;
     private bool gameFinished = false;
 
     private void Start() {
+        cansSoldGoal = LevelData.cansSoldGoal;
+        maxTime = LevelData.maxTime;
+
         time = maxTime;
         playerUI = playerObject.GetComponent<PlayerUI>();
     }

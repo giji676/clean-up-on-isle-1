@@ -13,11 +13,13 @@ public class ObjectPooler : MonoBehaviour {
 
     #endregion
 
-    public GameObject objectToPool;
-    public int poolSize;
+    [SerializeField] private GameObject objectToPool;
+    private int poolSize;
     private List<GameObject> pooledObjects;
 
     private void Start() {
+        poolSize = LevelData.canPoolSize;
+
         pooledObjects = new List<GameObject>();
 
         for (int i = 0; i < poolSize; i++) {

@@ -4203,13 +4203,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b89d67a1a1c3846b9c89c1946eba10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 500
   playerObject: {fileID: 725555494}
   gameWon: GAME WON
   gameOver: GAME OVER
   text: {fileID: 482513406}
   timeText: {fileID: 1931634614}
-  cansSoldGoal: 100
   timeImage: {fileID: 957548587}
 --- !u!4 &421918870
 Transform:
@@ -4242,7 +4240,6 @@ MonoBehaviour:
   shelfLayer:
     serializedVersion: 2
     m_Bits: 256
-  objCount: 100
 --- !u!4 &440921435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2350452110872188098, guid: 8d4c3b6b758abd241b01425d71356b9f, type: 3}
@@ -6207,7 +6204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -519.55414, y: -216.29, z: 201.22}
+  m_LocalPosition: {x: -763.5, y: -166.7, z: 201.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9394,7 +9391,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPool: {fileID: 8213849050795318155, guid: 7d63a567d34ae5646aca72bf141fcfa6, type: 3}
-  poolSize: 100
 --- !u!4 &1124249456
 Transform:
   m_ObjectHideFlags: 0

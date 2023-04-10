@@ -5,12 +5,16 @@ using UnityEngine;
 public class CanSpawner : MonoBehaviour {
     [SerializeField] private Transform canParent;
     [SerializeField] private LayerMask shelfLayer;
-    [SerializeField] private int objCount;
+    private int cansNumToSpawn;
     private int numSpawned = 0;
     private Vector3 checkBoxSize = new Vector3(0.01f, 0.01f, 0.01f);
 
+    private void Start() {
+        cansNumToSpawn = LevelData.cansNumToSpawn;
+    }
+
     private void Update() {
-        if (numSpawned < objCount) {
+        if (numSpawned < cansNumToSpawn) {
             Spawn();
             numSpawned++;
         }
